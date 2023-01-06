@@ -5,7 +5,7 @@ stages{
     stage("Build our website"){
         steps{
             script{
-                sh "$PWD/scripts/build.sh"
+                sh "scripts/build.sh"
             }
         }
 
@@ -14,7 +14,7 @@ stages{
     stage ("Run unit tests"){
         steps{
             script{
-                sh "$PWD/scripts/unit_tests.sh"
+                sh "scripts/unit_tests.sh"
             }
         }
 
@@ -23,7 +23,7 @@ stages{
     stage("Deploy website"){
         steps{
             script{
-                sh "$PWD/scripts/deploy_website.sh"
+                sh "scripts/deploy_website.sh"
             }
         }
 
