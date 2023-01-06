@@ -1,5 +1,14 @@
 version: '3.8'
 services:
+  jenkins:
+    build: .
+    image: jenkins/jenkins
+    ports:
+      - 50000:50000
+      - 8080:8080
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - $PWD:/app
   aws:
     image: amazon/aws-cli
     environment:
@@ -55,3 +64,6 @@ services:
     command:
       - --pattern
       - /app/spec/unit/*_spec.rb
+
+volumes:
+  jenkins_home:
