@@ -3,7 +3,7 @@ require 'capybara/dsl'
 require 'selenium-webdriver'
 
 include Capybara::DSL
-Capybara.app_host = "http://explorecalifornia.ke.s3-website-us-east-1.amazonaws.com" # Using Selenium; connect over network
+Capybara.app_host = "http://#{ENV['WEBSITE_URL']}" # Using Selenium; connect over network
 Capybara.run_server = false # Disable Rack since we are using Selenium.
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(
